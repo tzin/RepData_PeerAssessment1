@@ -9,12 +9,6 @@ Load the data (i.e. read.csv())
 Process/transform the data (if necessary) into a format suitable for your analysis
 ```
 
-```
-## Error: <text>:3:9: unexpected symbol
-## 2: 
-## 3: Loading and
-##            ^
-```
 
 ```r
 act <- read.csv("activity.csv",header=TRUE)
