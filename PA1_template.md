@@ -18,8 +18,6 @@ output: html_document
 
 # Week2 R Markdown Coursera Assignment
 
-
-
 Loading and preprocessing the data
 
 Load the data (i.e. read.csv())
@@ -34,11 +32,21 @@ act <- read.csv("activity.csv",header=TRUE)
 
 For this part of the assignment, you can ignore the missing values in the dataset.
 
-Calculate the total number of steps taken per day stepsperday <- aggregate(steps ~ date,act, sum, na.action = na.omit)
+Calculate the total number of steps taken per day 
+
+
+```r
+stepsperday <- aggregate(steps ~ date,act, sum, na.action = na.omit)
+```
 
 Make a histogram of the total number of steps taken each day 
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
+
+```r
+hist(x=stepsperday$steps, ylab="number of steps", main="Histogram of Total Steps per Day")
+```
+
+![plot of chunk plot1](figure/plot1-1.png)
 
 
 Calculate and report the mean and median of the total number of steps taken per day
@@ -105,7 +113,12 @@ stepsperdayNARM <- aggregate(steps ~ date,actNARM, sum)
 
 Create a new dataset that is equal to the original dataset but with the missing data filled in. Make a histogram of the total number of steps taken each day and calculate and report the mean and median total number of steps taken per day.
 
-![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png)
+
+```r
+hist(x=stepsperdayNARM$steps, ylab="number of steps", main="Histogram of Total Steps per Day with NA removed")
+```
+
+![plot of chunk plot3](figure/plot3-1.png)
 
 
 ```r
@@ -116,9 +129,6 @@ summary(stepsperdayNARM$steps)
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##      41    9819   10770   10770   12810   21190
 ```
-
-Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-41    9819   10770   10770   12810   21190 
 
 Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 
@@ -167,6 +177,7 @@ avgweekdaysteps <- aggregate(steps ~ interval+weekday,actNARM, mean)
 
 
 ```r
+library(ggplot2)
 ggweekdaysteps <- ggplot(avgweekdaysteps, aes(interval,steps))+ 
   geom_line()+
   facet_wrap(~weekday, nrow=2)
@@ -174,7 +185,6 @@ ggweekdaysteps <- ggplot(avgweekdaysteps, aes(interval,steps))+
 print(ggweekdaysteps)
 ```
 
-![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14-1.png)
-```
+![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13-1.png)
 ```
 
