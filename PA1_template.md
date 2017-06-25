@@ -7,14 +7,6 @@ author: "Thazin"
 date: "June 25, 2017"
 output: html_document
 ---
-```
-
-```
-## Error: <text>:7:0: unexpected end of input
-## 5: output: html_document
-## 6: ---
-##   ^
-```
 
 # Week2 R Markdown Coursera Assignment
 
@@ -22,7 +14,14 @@ Loading and preprocessing the data
 
 Load the data (i.e. read.csv())
 Process/transform the data (if necessary) into a format suitable for your analysis
+```
 
+```
+## Error: <text>:10:9: unexpected symbol
+## 9: 
+## 10: Loading and
+##             ^
+```
 
 ```r
 act <- read.csv("activity.csv",header=TRUE)
