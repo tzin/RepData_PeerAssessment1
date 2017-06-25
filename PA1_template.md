@@ -1,13 +1,6 @@
 
 
 ```r
----
-title: "Week2RMarkdown"
-author: "Thazin"
-date: "June 25, 2017"
-output: html_document
----
-
 # Week2 R Markdown Coursera Assignment
 
 Loading and preprocessing the data
@@ -17,10 +10,10 @@ Process/transform the data (if necessary) into a format suitable for your analys
 ```
 
 ```
-## Error: <text>:10:9: unexpected symbol
-## 9: 
-## 10: Loading and
-##             ^
+## Error: <text>:3:9: unexpected symbol
+## 2: 
+## 3: Loading and
+##            ^
 ```
 
 ```r
@@ -134,8 +127,10 @@ Do these values differ from the estimates from the first part of the assignment?
 They differ but very slightly for the median.
 
  original = 
+
  Ans: Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
        41    8841   10760   10770   13290   21190
+
  Adjusted (no NA) = 
       Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
        41    9819   10770   10770   12810   21190 
@@ -145,7 +140,7 @@ They differ but very slightly for the median.
 For this part the weekdays() function may be of some help here. Use the dataset with the filled-in missing values for this part.
 
 ```r
-actNARM$weekday <- weekdays(as.Date(actNARM$date, "%Y-%m-%d"))
+actNARM$day <- weekdays(as.Date(actNARM$date, "%Y-%m-%d"))
 
 for (n in 1:nrow(actNARM)){
   if (actNARM$day[n] == "Saturday" | actNARM$day[n] == "Sunday"){
@@ -154,10 +149,6 @@ for (n in 1:nrow(actNARM)){
     actNARM$weekday[n] <- "weekday"
   }
 }
-```
-
-```
-## Error in if (actNARM$day[n] == "Saturday" | actNARM$day[n] == "Sunday") {: argument is of length zero
 ```
 
 Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
@@ -184,6 +175,6 @@ ggweekdaysteps <- ggplot(avgweekdaysteps, aes(interval,steps))+
 print(ggweekdaysteps)
 ```
 
-![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13-1.png)
+![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14-1.png)
 ```
 
