@@ -7,15 +7,17 @@ author: "Thazin"
 date: "June 25, 2017"
 output: html_document
 ---
-# Week2 R Markdown Coursera Assignment
 ```
 
 ```
-## Error: <text>:9:0: unexpected end of input
-## 7: # Week2 R Markdown Coursera Assignment
-## 8: 
+## Error: <text>:7:0: unexpected end of input
+## 5: output: html_document
+## 6: ---
 ##   ^
 ```
+
+# Week2 R Markdown Coursera Assignment
+
 
 
 Loading and preprocessing the data
@@ -23,10 +25,10 @@ Loading and preprocessing the data
 Load the data (i.e. read.csv())
 Process/transform the data (if necessary) into a format suitable for your analysis
 
+
 ```r
 act <- read.csv("activity.csv",header=TRUE)
 ```
-
 
 ## What is mean total number of steps taken per day?
 
@@ -35,6 +37,7 @@ For this part of the assignment, you can ignore the missing values in the datase
 Calculate the total number of steps taken per day stepsperday <- aggregate(steps ~ date,act, sum, na.action = na.omit)
 
 Make a histogram of the total number of steps taken each day 
+
 ![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
 
 
@@ -48,8 +51,6 @@ summary(stepsperday$steps)
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##      41    8841   10760   10770   13290   21190
 ```
-(Ans: Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-       41    8841   10760   10770   13290   21190)
 
 What is the average daily activity pattern?
 Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and 
@@ -61,7 +62,7 @@ avgdailysteps <- aggregate(steps ~ interval,act, mean, na.action = na.omit)
 ```
 
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png)
+![plot of chunk plot2](figure/plot2-1.png)
 
 Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -72,7 +73,6 @@ avgdailysteps[which.max(avgdailysteps[,2]),1]
 ```
 ## [1] 835
 ```
-(835)
 
 #Inputing missing values
 
@@ -105,7 +105,7 @@ stepsperdayNARM <- aggregate(steps ~ date,actNARM, sum)
 
 Create a new dataset that is equal to the original dataset but with the missing data filled in. Make a histogram of the total number of steps taken each day and calculate and report the mean and median total number of steps taken per day.
 
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png)
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png)
 
 
 ```r
@@ -165,6 +165,6 @@ Make a panel plot containing a time series plot (i.e. type = "l") of the  5-minu
 avgweekdaysteps <- aggregate(steps ~ interval+weekday,actNARM, mean)
 ```
 
-![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15-1.png)
+![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14-1.png)
 ```
 
