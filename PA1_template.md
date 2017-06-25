@@ -165,6 +165,16 @@ Make a panel plot containing a time series plot (i.e. type = "l") of the  5-minu
 avgweekdaysteps <- aggregate(steps ~ interval+weekday,actNARM, mean)
 ```
 
+
+```r
+ggweekdaysteps <- ggplot(avgweekdaysteps, aes(interval,steps))+ 
+  geom_line()+
+  facet_wrap(~weekday, nrow=2)
+  
+print(ggweekdaysteps)
+```
+
 ![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14-1.png)
+```
 ```
 
