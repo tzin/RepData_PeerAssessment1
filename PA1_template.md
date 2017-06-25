@@ -1,13 +1,9 @@
-
-
-```r
 # Week2 R Markdown Coursera Assignment
 
 Loading and preprocessing the data
 
 Load the data (i.e. read.csv())
 Process/transform the data (if necessary) into a format suitable for your analysis
-```
 
 
 ```r
